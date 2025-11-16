@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bibliotheca Library Management</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+        .stat-label {
+            color: #64748b;
+            margin-top: 5px;
+        }
+        .actions {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #dc2626;
+            color: white;
+        }
+        .btn-secondary {
+            background: #475569;
+            color: white;
+        }
+        table {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        tr:hover { background: #f8fafc; }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status.available {
+            background: #d1fae5;
+            color: #047857;
+        }
+        .status.borrowed {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Admin Dashboard</h1>
+        <p class="subtitle">Bibliotheca Library Management System</p>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value"><%= books.length %></div>
+                <div class="stat-label">Total Books</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value"><%= books.filter(b => b.available).length %></div>
+                <div class="stat-label">Available</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value"><%= books.filter(b => !b.available).length %></div>
+                <div class="stat-label">Borrowed</div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="/" class="btn btn-secondary">← Back to Library</a>
+            <a href="/api/books" class="btn btn-primary">View API</a>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                    <th>Rating</th>
+                    <th>Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% books.forEach(book => { %>
+                <tr>
+                    <td><strong><%= book.title %></strong></td>
+                    <td><%= book.author %></td>
+                    <td><%= book.genre || 'General' %></td>
+                    <td>
+                        <span class="status <%= book.available ? 'available' : 'borrowed' %>">
+                            <%= book.status %>
+                        </span>
+                    </td>
+                    <td><%= book.rating ? book.rating.toFixed(1) + ' ⭐' : 'N/A' %></td>
+                    <td><%= new Date(book.createdAt).toLocaleDateString() %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

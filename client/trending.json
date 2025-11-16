@@ -1,0 +1,78 @@
+{
+  "section": "trending-books",
+  "lastUpdated": "2025-10-27",
+  "books": [
+    {
+      "id": 1,
+      "title": "The Digital Renaissance",
+      "author": "Dr. Elena Rodriguez",
+      "rating": 4.8,
+      "genre": "Technology",
+      "description": "A comprehensive exploration of how digital transformation is reshaping our world.",
+      "publishedYear": 2024,
+      "isbn": "978-1234567890",
+      "totalReviews": 342,
+      "isNewRelease": true,
+      "tags": ["technology", "digital", "innovation", "future"]
+    },
+    {
+      "id": 2,
+      "title": "Mindful Leadership",
+      "author": "Sarah Chen",
+      "rating": 4.6,
+      "genre": "Business",
+      "description": "Discover the power of mindful leadership in today's fast-paced business environment.",
+      "publishedYear": 2024,
+      "isbn": "978-1234567891",
+      "totalReviews": 256,
+      "isNewRelease": true,
+      "tags": ["leadership", "mindfulness", "business", "management"]
+    },
+    {
+      "id": 3,
+      "title": "Climate Solutions Now",
+      "author": "Prof. Marcus Webb",
+      "rating": 4.9,
+      "genre": "Environmental Science",
+      "description": "Practical and innovative solutions to address climate change challenges.",
+      "publishedYear": 2024,
+      "isbn": "978-1234567892",
+      "totalReviews": 489,
+      "isNewRelease": false,
+      "tags": ["climate", "environment", "sustainability", "solutions"]
+    },
+    {
+      "id": 4,
+      "title": "The Art of Code",
+      "author": "Alex Kim",
+      "rating": 4.7,
+      "genre": "Programming",
+      "description": "Bridging the gap between programming skills and creative problem-solving.",
+      "publishedYear": 2023,
+      "isbn": "978-1234567893",
+      "totalReviews": 678,
+      "isNewRelease": false,
+      "tags": ["programming", "coding", "software", "creativity"]
+    },
+    {
+      "id": 5,
+      "title": "Quantum Possibilities",
+      "author": "Dr. Priya Sharma",
+      "rating": 4.5,
+      "genre": "Science",
+      "description": "An accessible introduction to quantum physics and its real-world applications.",
+      "publishedYear": 2024,
+      "isbn": "978-1234567894",
+      "totalReviews": 234,
+      "isNewRelease": true,
+      "tags": ["quantum", "physics", "science", "technology"]
+    }
+  ],
+  "metadata": {
+    "totalBooks": 5,
+    "averageRating": 4.7,
+    "mostPopularGenre": "Technology",
+    "newestBook": "The Digital Renaissance",
+    "topRatedBook": "Climate Solutions Now"
+  }
+}

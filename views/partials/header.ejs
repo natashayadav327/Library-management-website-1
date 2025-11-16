@@ -1,0 +1,29 @@
+<header class="admin-header">
+    <nav class="admin-nav">
+        <a href="/" class="logo">📚 Bibliotheca</a>
+        <a href="/">Home</a>
+        <a href="/admin/books">Admin</a>
+        <% if (!user) { %>
+            <a href="/auth/login" style="margin-left: auto;">Login</a>
+            <a href="/auth/signup">Sign Up</a>
+        <% } else { %>
+            <span style="color: rgba(255,255,255,0.7); font-size: 14px; margin-left: auto;">
+                👤 <%= user.email %>
+            </span>
+            <form method="POST" action="/auth/logout" style="margin: 0;">
+                <button type="submit" style="
+                    background: rgba(255,255,255,0.1);
+                    color: white;
+                    border: 1px solid rgba(255,255,255,0.2);
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: background 0.2s;
+                ">
+                    Logout
+                </button>
+            </form>
+        <% } %>
+    </nav>
+</header>

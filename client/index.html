@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotheca - Premium Library Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Header with elegant navigation -->
+    <header class="header">
+        <div class="header__container">
+            <div class="logo">
+                <div class="logo__icon">📚</div>
+                <span class="logo__text">Bibliotheca</span>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--active">
+                        <a href="#" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#collection" class="nav__link">Collection</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#dashboard" class="nav__link">Dashboard</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#explore" class="nav__link">Explore</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <a href="/auth/login" class="btn-auth btn-login">Login</a>
+                <a href="/auth/signup" class="btn-auth btn-signup">Sign Up</a>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section with elegant design -->
+        <section class="hero">
+            <div class="hero__background">
+                <div class="hero__overlay"></div>
+                <img src="assets/homeimage.avif" alt="Beautiful library interior" class="hero__bg-image">
+                <!-- <img src="assets/homeimage.avif" alt="Home" loading="lazy" width="1200" height="600" /> -->
+
+            </div>
+            
+            <div class="hero__container">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <span class="hero__badge-text">Discover Excellence</span>
+                    </div>
+                    <h1 class="hero__title">
+                        Discover Your Next 
+                        <span class="hero__title-highlight">Great Read</span>
+                    </h1>
+                    <p class="hero__description">
+                        Immerse yourself in our curated collection of literary masterpieces. From timeless classics to contemporary gems, find your perfect story.
+                    </p>
+                    
+                    <div class="hero__search">
+                        <div class="search-input">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="search" placeholder="Search for books, authors, or ISBNs..." class="search-field">
+                            <button class="search-btn">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="hero__filters">
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>All Genres</option>
+                                <option>Fiction</option>
+                                <option>Non-Fiction</option>
+                                <option>Mystery</option>
+                                <option>Romance</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>All Authors</option>
+                                <option>Classic Authors</option>
+                                <option>Contemporary</option>
+                                <option>Bestsellers</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>All Status</option>
+                                <option>Available</option>
+                                <option>Reserved</option>
+                                <option>Checked Out</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="checkbox">
+                                <span class="checkmark"></span>
+                                Public Domain PDF
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Books Section -->
+        <section class="trending-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Trending Books</h2>
+                    <p class="section-subtitle">Discover what's captivating readers worldwide</p>
+                </div>
+                
+                <div class="books-grid">
+                    <article class="book-card" style="--card-index: 0;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop&auto=format" alt="Timeless Tales book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">Timeless Tales of Wonder</h3>
+                            <p class="book-author">Sarah Mitchell</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+
+                    <article class="book-card" style="--card-index: 1;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop&auto=format" alt="Echoes of Yesterday book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">Echoes of Yesterday</h3>
+                            <p class="book-author">David Chen</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+
+                    <article class="book-card" style="--card-index: 2;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=300&h=400&fit=crop&auto=format&q=80" alt="The Silent Gardens book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">The Silent Gardens</h3>
+                            <p class="book-author">Elena Rodriguez</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+
+                    <article class="book-card" style="--card-index: 3;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&auto=format" alt="Digital Dreams book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">Digital Dreams</h3>
+                            <p class="book-author">Alex Thompson</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+
+                    <article class="book-card" style="--card-index: 4;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300&h=400&fit=crop&auto=format" alt="Whispers of Time book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">Whispers of Time</h3>
+                            <p class="book-author">Maria Santos</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+
+                    <article class="book-card" style="--card-index: 5;">
+                        <div class="book-card__image">
+                            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=300&h=400&fit=crop&auto=format" alt="Cosmic Voyage book cover" class="book-cover">
+                            <div class="book-card__overlay">
+                                <button class="btn-quick-view">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="book-card__content">
+                            <h3 class="book-title">Cosmic Voyage</h3>
+                            <p class="book-author">James Wilson</p>
+                            <div class="book-status available">Available</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Section -->
+        <section id="collection" class="collection-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Explore Our Collection</h2>
+                    <p class="section-subtitle">Curated selections from our extensive library</p>
+                </div>
+                
+                <div class="collection-grid">
+                    <article class="collection-card" style="--card-index: 0;">
+                        <div class="collection-card__image">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop&auto=format" alt="Chronicles of Eldoria book cover" class="collection-cover">
+                        </div>
+                        <div class="collection-card__content">
+                            <h3 class="collection-title">Chronicles of Eldoria</h3>
+                            <p class="collection-author">Lyra Stone</p>
+                            <div class="collection-status available">Available</div>
+                            <div class="collection-actions">
+                                <button class="btn-reserve">Reserve</button>
+                                <button class="btn-notify">Notify Me</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="collection-card" style="--card-index: 1;">
+                        <div class="collection-card__image">
+                            <img src="assets\bookimg.avif" alt="The Last Stargazer book cover" class="collection-cover">
+                        </div>
+                        <div class="collection-card__content">
+                            <h3 class="collection-title">The Last Stargazer</h3>
+                            <p class="collection-author">Dr. Aris Thorne</p>
+                            <div class="collection-status checked-out">Checked Out</div>
+                            <div class="collection-actions">
+                                <button class="btn-reserve">Reserve</button>
+                                <button class="btn-notify">Notify Me</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="collection-card" style="--card-index: 2;">
+                        <div class="collection-card__image">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop&auto=format" alt="Mystery of Shadow Manor book cover" class="collection-cover">
+                        </div>
+                        <div class="collection-card__content">
+                            <h3 class="collection-title">Mystery of Shadow Manor</h3>
+                            <p class="collection-author">Eleanor Vance</p>
+                            <div class="collection-status available">Available</div>
+                            <div class="collection-actions">
+                                <button class="btn-reserve">Reserve</button>
+                                <button class="btn-notify">Notify Me</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author and Lookup Section -->
+        <section class="author-lookup-section">
+            <div class="container">
+                <div class="author-lookup-grid">
+                    <div class="author-card">
+                        <h3 class="author-title">About the Author</h3>
+                        <div class="author-content">
+                            <div class="author-image">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face&auto=format" alt="Elara Vance author photo" class="author-photo">
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Elara Vance</h4>
+                                <p class="author-bio">Renowned author celebrated for her captivating fantasy novels and profound explorations of human nature and the environment. With a background in ancient literature and cartography, her third novel, "The Silent Forest," has been praised for its lyrical prose and timely themes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lookup-card">
+                        <h3 class="lookup-title">Quick ISBN Lookup</h3>
+                        <div class="lookup-content">
+                            <input type="text" placeholder="Enter ISBN (e.g., 978-0-12345-678-9)" class="lookup-input">
+                            <button class="lookup-btn">Scan ISBN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-books">
+                    <div class="related-header">
+                        <h3 class="related-title">Related Books</h3>
+                        <button class="btn-view-all">View All</button>
+                    </div>
+                    <div class="related-grid">
+                        <div class="related-book">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=200&fit=crop&auto=format" alt="Whispers of the Ancient book cover" class="related-cover">
+                            <h4 class="related-book-title">Whispers of the Ancient</h4>
+                        </div>
+                        <div class="related-book">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=150&h=200&fit=crop&auto=format" alt="Echoes from the Past book cover" class="related-cover">
+                            <h4 class="related-book-title">Echoes from the Past</h4>
+                        </div>
+                        <div class="related-book">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=150&h=200&fit=crop&auto=format&q=80" alt="The Alchemist's Secret book cover" class="related-cover">
+                            <h4 class="related-book-title">The Alchemist's Secret</h4>
+                        </div>
+                        <div class="related-book">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=150&h=200&fit=crop&auto=format" alt="Chronicles of the Time book cover" class="related-cover">
+                            <h4 class="related-book-title">Chronicles of the Time</h4>
+                        </div>
+                        <div class="related-book">
+                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=150&h=200&fit=crop&auto=format" alt="The Lumina Crystal book cover" class="related-cover">
+                            <h4 class="related-book-title">The Lumina Crystal</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="container">
+                <div class="dashboard-welcome">
+                    <div class="welcome-content">
+                        <div class="welcome-user">
+                            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=80&h=80&fit=crop&crop=face&auto=format&q=80" alt="Jane profile" class="welcome-avatar">
+                            <div class="welcome-text">
+                                <h2 class="welcome-title">Welcome Back, Jane!</h2>
+                                <p class="welcome-subtitle">Your personalized library dashboard</p>
+                            </div>
+                        </div>
+                        <a href="#" class="view-profile">View Profile</a>
+                    </div>
+                    
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="stat-icon">📚</div>
+                            <span class="stat-text">3 Books Borrowed</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">📅</div>
+                            <span class="stat-text">1 Book Due Today</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🔔</div>
+                            <span class="stat-text">1 New Notification</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="borrowed-section">
+                        <div class="section-header">
+                            <h3 class="section-title">Borrowed Books</h3>
+                            <p class="section-subtitle">Books you currently have checked out</p>
+                        </div>
+                        
+                        <div class="book-list">
+                            <div class="book-item">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=60&h=80&fit=crop&auto=format" alt="The Great Gatsby cover" class="book-item__cover">
+                                <div class="book-item__info">
+                                    <h4 class="book-item__title">The Great Gatsby</h4>
+                                    <p class="book-item__author">F. Scott Fitzgerald</p>
+                                    <div class="book-item__due">
+                                        <span class="due-icon">📅</span>
+                                        <span class="due-text">Due: 2024-07-15</span>
+                                        <span class="due-status days-left">5 days left</span>
+                                    </div>
+                                </div>
+                                <div class="book-item__actions">
+                                    <button class="btn-action">Renew</button>
+                                    <button class="btn-action">Return</button>
+                                </div>
+                            </div>
+
+                            <div class="book-item">
+                                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=60&h=80&fit=crop&auto=format" alt="1984 cover" class="book-item__cover">
+                                <div class="book-item__info">
+                                    <h4 class="book-item__title">1984</h4>
+                                    <p class="book-item__author">George Orwell</p>
+                                    <div class="book-item__due">
+                                        <span class="due-icon">📅</span>
+                                        <span class="due-text">Due: 2024-07-10</span>
+                                        <span class="due-status due-today">Due Today</span>
+                                    </div>
+                                </div>
+                                <div class="book-item__actions">
+                                    <button class="btn-action">Renew</button>
+                                    <button class="btn-action">Return</button>
+                                </div>
+                            </div>
+
+                            <div class="book-item">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=60&h=80&fit=crop&auto=format" alt="To Kill a Mockingbird cover" class="book-item__cover">
+                                <div class="book-item__info">
+                                    <h4 class="book-item__title">To Kill a Mockingbird</h4>
+                                    <p class="book-item__author">Harper Lee</p>
+                                    <div class="book-item__due">
+                                        <span class="due-icon">📅</span>
+                                        <span class="due-text">Due: 2024-07-20</span>
+                                        <span class="due-status days-left">10 days left</span>
+                                    </div>
+                                </div>
+                                <div class="book-item__actions">
+                                    <button class="btn-action">Renew</button>
+                                    <button class="btn-action">Return</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reserved-section">
+                        <div class="section-header">
+                            <h3 class="section-title">Reserved Books</h3>
+                            <p class="section-subtitle">Books you have reserved and are waiting for</p>
+                        </div>
+                        
+                        <div class="book-list">
+                            <div class="book-item">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=80&fit=crop&auto=format" alt="Dune cover" class="book-item__cover">
+                                <div class="book-item__info">
+                                    <h4 class="book-item__title">Dune</h4>
+                                    <p class="book-item__author">Frank Herbert</p>
+                                    <div class="book-item__status">
+                                        <span class="status-text">In Queue: #2</span>
+                                    </div>
+                                </div>
+                                <div class="book-item__actions">
+                                    <button class="btn-action secondary">Pickup</button>
+                                    <button class="btn-action">Cancel</button>
+                                </div>
+                            </div>
+
+                            <div class="book-item">
+                                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=60&h=80&fit=crop&auto=format" alt="The Lord of the Rings cover" class="book-item__cover">
+                                <div class="book-item__info">
+                                    <h4 class="book-item__title">The Lord of the Rings</h4>
+                                    <p class="book-item__author">J.R.R. Tolkien</p>
+                                    <div class="book-item__status">
+                                        <span class="status-text">Ready for Pickup!</span>
+                                        <span class="status-badge available">Available</span>
+                                    </div>
+                                </div>
+                                <div class="book-item__actions">
+                                    <button class="btn-action primary">Pickup</button>
+                                    <button class="btn-action">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo__icon">📚</div>
+                        <span class="logo__text">Bibliotheca</span>
+                    </div>
+                    <p class="footer-description">Your gateway to endless knowledge and literary adventures.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Browse Collection</a></li>
+                            <li><a href="#" class="footer-link">New Arrivals</a></li>
+                            <li><a href="#" class="footer-link">Bestsellers</a></li>
+                            <li><a href="#" class="footer-link">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Support</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Help Center</a></li>
+                            <li><a href="#" class="footer-link">Contact Us</a></li>
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="#" class="footer-link">Library Hours</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Connect</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Newsletter</a></li>
+                            <li><a href="#" class="footer-link">Social Media</a></li>
+                            <li><a href="#" class="footer-link">Community</a></li>
+                            <li><a href="#" class="footer-link">Feedback</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2024 Bibliotheca. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" class="footer-legal-link">Privacy Policy</a>
+                    <a href="#" class="footer-legal-link">Terms of Service</a>
+                    <a href="#" class="footer-legal-link">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files for Evaluation -->
+    <script src="auth.js"></script>
+    <script src="oop.js"></script>
+    <script src="trending.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

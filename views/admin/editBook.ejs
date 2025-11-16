@@ -1,0 +1,210 @@
+<% 
+  // Set page title
+  const title = 'Edit Book';
+%>
+
+<div style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 32px;">
+        <a href="/admin/books" style="color: #dc2626; text-decoration: none; font-weight: 600;">← Back to Books</a>
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 42px; margin: 16px 0 8px;">Edit Book</h1>
+        <p style="color: #64748b;">Update the book details below</p>
+    </div>
+
+    <% if (errorMessage) { %>
+        <div class="alert alert-error">
+            ✗ <%= errorMessage %>
+        </div>
+    <% } %>
+
+    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <form action="/admin/books/<%= book._id %>/edit" method="POST">
+            <!-- Title (Required) -->
+            <div class="form-group <%= errors.title ? 'has-error' : '' %>">
+                <label for="title">Title <span style="color: #dc2626;">*</span></label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    value="<%= book.title || '' %>" 
+                    required
+                    placeholder="Enter book title">
+                <% if (errors.title) { %>
+                    <div class="form-error"><%= errors.title %></div>
+                <% } %>
+            </div>
+
+            <!-- Author (Required) -->
+            <div class="form-group <%= errors.author ? 'has-error' : '' %>">
+                <label for="author">Author <span style="color: #dc2626;">*</span></label>
+                <input 
+                    type="text" 
+                    id="author" 
+                    name="author" 
+                    value="<%= book.author || '' %>" 
+                    required
+                    placeholder="Enter author name">
+                <% if (errors.author) { %>
+                    <div class="form-error"><%= errors.author %></div>
+                <% } %>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group <%= errors.description ? 'has-error' : '' %>">
+                <label for="description">Description</label>
+                <textarea 
+                    id="description" 
+                    name="description" 
+                    placeholder="Enter book description"><%= book.description || '' %></textarea>
+                <% if (errors.description) { %>
+                    <div class="form-error"><%= errors.description %></div>
+                <% } %>
+            </div>
+
+            <!-- Genre and Category -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group <%= errors.genre ? 'has-error' : '' %>">
+                    <label for="genre">Genre</label>
+                    <select id="genre" name="genre">
+                        <option value="General" <%= (book.genre === 'General' || !book.genre) ? 'selected' : '' %>>General</option>
+                        <option value="Fiction" <%= book.genre === 'Fiction' ? 'selected' : '' %>>Fiction</option>
+                        <option value="Non-Fiction" <%= book.genre === 'Non-Fiction' ? 'selected' : '' %>>Non-Fiction</option>
+                        <option value="Mystery" <%= book.genre === 'Mystery' ? 'selected' : '' %>>Mystery</option>
+                        <option value="Romance" <%= book.genre === 'Romance' ? 'selected' : '' %>>Romance</option>
+                        <option value="Science Fiction" <%= book.genre === 'Science Fiction' ? 'selected' : '' %>>Science Fiction</option>
+                        <option value="Fantasy" <%= book.genre === 'Fantasy' ? 'selected' : '' %>>Fantasy</option>
+                        <option value="Biography" <%= book.genre === 'Biography' ? 'selected' : '' %>>Biography</option>
+                        <option value="History" <%= book.genre === 'History' ? 'selected' : '' %>>History</option>
+                        <option value="Technology" <%= book.genre === 'Technology' ? 'selected' : '' %>>Technology</option>
+                        <option value="Business" <%= book.genre === 'Business' ? 'selected' : '' %>>Business</option>
+                    </select>
+                    <% if (errors.genre) { %>
+                        <div class="form-error"><%= errors.genre %></div>
+                    <% } %>
+                </div>
+
+                <div class="form-group <%= errors.category ? 'has-error' : '' %>">
+                    <label for="category">Category</label>
+                    <input 
+                        type="text" 
+                        id="category" 
+                        name="category" 
+                        value="<%= book.category || '' %>" 
+                        placeholder="Enter category">
+                    <% if (errors.category) { %>
+                        <div class="form-error"><%= errors.category %></div>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- ISBN and Published Year -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group <%= errors.isbn ? 'has-error' : '' %>">
+                    <label for="isbn">ISBN</label>
+                    <input 
+                        type="text" 
+                        id="isbn" 
+                        name="isbn" 
+                        value="<%= book.isbn || '' %>" 
+                        placeholder="978-0-123456-78-9">
+                    <% if (errors.isbn) { %>
+                        <div class="form-error"><%= errors.isbn %></div>
+                    <% } %>
+                </div>
+
+                <div class="form-group <%= errors.publishedYear ? 'has-error' : '' %>">
+                    <label for="publishedYear">Published Year</label>
+                    <input 
+                        type="number" 
+                        id="publishedYear" 
+                        name="publishedYear" 
+                        value="<%= book.publishedYear || '' %>" 
+                        min="1000" 
+                        max="<%= new Date().getFullYear() + 1 %>"
+                        placeholder="<%= new Date().getFullYear() %>">
+                    <% if (errors.publishedYear) { %>
+                        <div class="form-error"><%= errors.publishedYear %></div>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Cover URL and Rating -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+                <div class="form-group <%= errors.coverUrl ? 'has-error' : '' %>">
+                    <label for="coverUrl">Cover Image URL</label>
+                    <input 
+                        type="url" 
+                        id="coverUrl" 
+                        name="coverUrl" 
+                        value="<%= book.coverUrl || '' %>" 
+                        placeholder="https://example.com/cover.jpg">
+                    <% if (errors.coverUrl) { %>
+                        <div class="form-error"><%= errors.coverUrl %></div>
+                    <% } %>
+                </div>
+
+                <div class="form-group <%= errors.rating ? 'has-error' : '' %>">
+                    <label for="rating">Rating (0-5)</label>
+                    <input 
+                        type="number" 
+                        id="rating" 
+                        name="rating" 
+                        value="<%= book.rating || '' %>" 
+                        min="0" 
+                        max="5" 
+                        step="0.1"
+                        placeholder="4.5">
+                    <% if (errors.rating) { %>
+                        <div class="form-error"><%= errors.rating %></div>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Status and Available -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group <%= errors.status ? 'has-error' : '' %>">
+                    <label for="status">Status</label>
+                    <select id="status" name="status">
+                        <option value="Available" <%= (book.status === 'Available' || !book.status) ? 'selected' : '' %>>Available</option>
+                        <option value="Borrowed" <%= book.status === 'Borrowed' ? 'selected' : '' %>>Borrowed</option>
+                        <option value="Reserved" <%= book.status === 'Reserved' ? 'selected' : '' %>>Reserved</option>
+                        <option value="Checked Out" <%= book.status === 'Checked Out' ? 'selected' : '' %>>Checked Out</option>
+                    </select>
+                    <% if (errors.status) { %>
+                        <div class="form-error"><%= errors.status %></div>
+                    <% } %>
+                </div>
+
+                <div class="form-group <%= errors.available ? 'has-error' : '' %>">
+                    <label for="available">Availability</label>
+                    <select id="available" name="available">
+                        <option value="true" <%= (book.available === true || book.available === 'true') ? 'selected' : '' %>>Available</option>
+                        <option value="false" <%= (book.available === false || book.available === 'false') ? 'selected' : '' %>>Not Available</option>
+                    </select>
+                    <% if (errors.available) { %>
+                        <div class="form-error"><%= errors.available %></div>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group <%= errors.tags ? 'has-error' : '' %>">
+                <label for="tags">Tags (comma-separated)</label>
+                <input 
+                    type="text" 
+                    id="tags" 
+                    name="tags" 
+                    value="<%= (book.tags && Array.isArray(book.tags)) ? book.tags.join(', ') : (book.tags || '') %>" 
+                    placeholder="fiction, bestseller, award-winning">
+                <% if (errors.tags) { %>
+                    <div class="form-error"><%= errors.tags %></div>
+                <% } %>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div style="display: flex; gap: 12px; margin-top: 32px;">
+                <button type="submit" class="btn btn-primary">Update Book</button>
+                <a href="/admin/books" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
